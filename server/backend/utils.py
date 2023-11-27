@@ -47,7 +47,8 @@ def is_palindrome(word):
 def setupCron():
     if os.name == "nt":
         current_path = os.getcwd()
-        print(current_path)
-        subprocess.Popen("python " + os.getcwd() + "/api/authentication/api.py")
+        print("python " + os.getcwd() + "\\api\\authentication\\api.py")
+
+        # subprocess.Popen("python " + os.getcwd() + "/api/authentication/api.py")
     else:
-        subprocess.Popen("python ../api/authentication/endpoints.py")
+        subprocess.Popen("python3 " + os.getcwd() + "\\api\\authentication\\endpoints.py")

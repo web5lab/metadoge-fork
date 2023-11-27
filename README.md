@@ -2,6 +2,8 @@
 
 ## Prerequestics
 
+## windows users
+
 > 1. Download and install Python 3.10 on this link. https://www.python.org/ftp/python/3.10.10/python-3.10.10-amd64.exe
 ```
 Don't forget to check 'pip' install and Add to Path when start python installer.
@@ -22,7 +24,7 @@ pip install -r requirements.txt
 ```
 
 ```
-python manage.py runserver --noreload (Open command line as Administrator)
+python manage.py runserver --noreload 
 ```
 
 ### Running the ReactJS Project

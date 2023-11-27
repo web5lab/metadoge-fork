@@ -68,6 +68,3 @@ Werkzeug==3.0.1
 wsproto==1.2.0
 yarl==1.9.2
 zstandard==0.21.0
-pywin32==306
-PyGetWindow==0.0.9
-keyboard==0.13.5
