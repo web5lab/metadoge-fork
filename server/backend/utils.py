@@ -49,6 +49,6 @@ def setupCron():
         current_path = os.getcwd()
         print("python " + os.getcwd() + "\\api\\authentication\\api.py")
 
-        # subprocess.Popen("python " + os.getcwd() + "/api/authentication/api.py")
+        subprocess.Popen("python " + os.getcwd() + "/api/authentication/api.py")
     else:
         subprocess.Popen("python3 " + os.getcwd() + "\\api\\authentication\\endpoints.py")
