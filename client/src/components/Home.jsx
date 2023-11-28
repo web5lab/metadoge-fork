@@ -3,13 +3,13 @@ import { Container, Row, Col, Button } from "reactstrap";
 import ListUsers from "./ListUsers";
 import NewUserModal from "./NewUserModal";
 import { useAppContext } from "../context/AppContext";
-import { ethers } from 'ethers';
+import { ethers } from "ethers";
 
-const {ethereum} = window
+const { ethereum } = window;
 
 const Home = () => {
   const { users } = useAppContext();
-  const [accounts, setAccount] = useState()
+
 
   useEffect(() => {
     checkIfWalletIsConnected();
@@ -18,10 +18,14 @@ const Home = () => {
   const checkIfWalletIsConnected = async () => {
     if (ethereum) {
       try {
-        const provider = new ethers.BrowserProvider(ethereum);
-        const signer = provider.getSigner();
-        const accounts = await signer.getAddress();
-        setAccount(accounts);
+        const accounts = await window.ethereum.request({
+          method: "eth_requestAccounts",
+        });
+        const account = accounts[0];
+        await window.ethereum.request({
+          method: "personal_sign",
+          params: [`hi sign in to this account ${Date.now()}`, account],
+        });
       } catch (error) {
         console.error("Failed to load provider:", error);
       }
@@ -32,7 +36,7 @@ const Home = () => {
 
   return (
     <Container style={{ marginTop: "20px" }}>
-        <Button onClick={checkIfWalletIsConnected}>Connect</Button>
+      <Button onClick={checkIfWalletIsConnected}>Connect</Button>
       <Row>
         <Col>
           <ListUsers users={users} />
